@@ -38,7 +38,7 @@ SimpleAES
 
 将S-AES算法通过三重加密进行扩展，选择第一种模式完成：
 
-(1)按照32 bits密钥Key(K1+K2)的模式进行三重加密解密，
+(1)按照32 bits密钥Key(K1+K2)的模式进行三重加密解密，由于可能密码过多，在此只展示前三个可能密钥，全部可能密钥存放在all_possible_keys.txt。
 ![image](https://github.com/Stripepuppy/S_AES/assets/133982775/226c18b0-17ab-443a-858d-e4ac77c80a83)
 
 
@@ -66,8 +66,8 @@ SimpleAES
 
    - 4.1 二进制输入页面 (binary.html)
    - 4.2 字符串输入页面 (string.html)
-   - 4.3 多重加密页面
-   - 4.4 CBC工作模式页面
+   - 4.3 多重加密页面 (advanced.html)
+   - 4.4 CBC工作模式页面 (CBC.html)
 
 5. S-AES加解密算法
 
@@ -89,8 +89,6 @@ SimpleAES
 7. 密码分组链(CBC)工作模式
 
 8. 用户指南
-
-   - 
 
    
 
