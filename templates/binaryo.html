@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Probably the most complete UI kit out there. Multiple functionalities and controls added,  extended color palette and beautiful typography, designed as its own extended version of Bootstrap at the highest level of quality.">
+    <meta name="author" content="Webpixels">
+    <title>Boomerang UI Kit - Free Bootstrap Framework by Webpixels</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
+    <!-- Theme CSS -->
+    <link type="text/css" href="{{ url_for('static', filename='css/theme.css') }}" rel="stylesheet">
+    <!-- Demo CSS - No need to use these in your project -->
+    <link type="text/css" href="{{ url_for('static', filename='css/demo.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <!-- ... [现有的导航栏代码] -->
+
+
+    <!-- 导航栏开始 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">S-DES</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/binary">Binary</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">String</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- 导航栏结束 -->
+
+    <!-- 新添加的S-DES加密部分 -->
+    <main class="main">
+        <section class="py-xl bg-cover bg-size--cover" style="background-image: url('static/images/backgrounds/img-1.jpg')">
+            <span class="mask bg-primary alpha-6"></span>
+            <div class="container d-flex align-items-center no-padding">
+                <div class="col">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="heading h3 pt-3 pb-5">Encrypt with S-DES (Binary Input)</h4>
+                                    <form id="encrypt-binary-form">
+                                        <div class="form-group">
+                                            <label for="plaintextForEncryption">输入明文：</label>
+                                            <input type="text" id="plaintextForEncryption" class="form-control" placeholder="例如：0,0,0,0">
+                                        </div>
+                                        <!-- 明文错误消息显示位置 -->
+                                        <div id="plaintext-error" class="error-message"></div>
+                                        <div class="form-group">
+                                            <label for="keyForEncryption">输入密钥：</label>
+                                            <input type="text" id="keyForEncryption" class="form-control" placeholder="例如：2,D,5,5">
+                                        </div>
+                                        <!-- 密钥错误消息显示位置 -->
+                                        <div id="key-error" class="error-message"></div>
+                                        <button type="submit" class="btn btn-block btn-lg bg-primary mt-4 text-white">Encrypt</button>
+
+                                    </form>
+                                    <h5 class="pt-4">Ciphertext (Binary):</h5>
+                                    <p id="encryptionResult"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="heading h3 pt-3 pb-5">Decrypt with S-DES (Binary Input)</h4>
+                                    <form id="decrypt-binary-form">
+                                        <div class="form-group">
+                                            <label for="ciphertextForDecryption">输入密文：</label>
+                                            <input type="text" id="ciphertextForDecryption" class="form-control" placeholder="例如：B,8,E,1">
+                                        </div>
+                                        <!-- 解密用密文错误消息显示位置 -->
+                                        <div id="ciphertext-decrypt-error" class="error-message"></div>
+                                        <div class="form-group">
+                                            <label for="keyForDecryption">输入密钥：</label>
+                                            <input type="text" id="keyForDecryption" class="form-control" placeholder="例如：2,D,5,5">
+                                        </div>
+                                        <!-- 解密用密钥错误消息显示位置 -->
+                                        <div id="key-decrypt-error" class="error-message"></div>
+                                        <button type="submit" class="btn btn-block btn-lg bg-primary mt-4 text-white">Decrypt</button>
+
+                                    </form>
+                                    <h5 class="pt-4">Decrypted Plaintext (Binary):</h5>
+                                    <p id="decryptionResult">解密结果: </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ... [原有的登录部分代码] -->
+    </main>
+
+    <!-- ... [页脚和JavaScript引入不变] -->
+
+<!-- Core -->
+<script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/popper/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
+<!-- FontAwesome 5 -->
+<script src="{{ url_for('static', filename='vendor/fontawesome/js/fontawesome-all.min.js') }}" defer></script>
+<!-- Page plugins -->
+<script src="{{ url_for('static', filename='vendor/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/input-mask/input-mask.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/nouislider/js/nouislider.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/textarea-autosize/textarea-autosize.min.js') }}"></script>
+<!-- Theme JS -->
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+
+<script>
+    // ... (其他的JS代码)
+
+    document.getElementById("encrypt-binary-form").addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        // 获取明文和密钥
+        let plaintext = document.getElementById("plaintextForEncryption").value.split(",");
+        let key = document.getElementById("keyForEncryption").value.split(",");
+
+        // 验证输入格式
+        if (!isValidHex(plaintext)) {
+            document.getElementById("plaintext-error").innerText = "明文必须包含4个16进制数字!";
+            return;
+        } else {
+            document.getElementById("plaintext-error").innerText = "";
+        }
+
+        if (!isValidHex(key)) {
+            document.getElementById("key-error").innerText = "密钥必须由4个16进制数字组成!";
+            return;
+        } else {
+            document.getElementById("key-error").innerText = "";
+        }
+
+        let response = await fetch('/encrypt_binary', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `plaintext_bin=${plaintext.join(",")}&key=${key.join(",")}`
+        });
+
+        let data = await response.json();
+        if (data.error) {
+            alert(data.error);
+        } else {
+            document.getElementById("encryptionResult").innerText = data.ciphertext_bin;
+        }
+    });
+
+    document.getElementById("decrypt-binary-form").addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        // 获取密文和密钥
+        let ciphertext = document.getElementById("ciphertextForDecryption").value.split(",");
+        let key = document.getElementById("keyForDecryption").value.split(",");
+
+        // 验证输入格式
+        if (!isValidHex(ciphertext)) {
+            document.getElementById("ciphertext-decrypt-error").innerText = "密文必须包含4个16进制数字!";
+            return;
+        } else {
+            document.getElementById("ciphertext-decrypt-error").innerText = "";
+        }
+
+        if (!isValidHex(key)) {
+            document.getElementById("key-decrypt-error").innerText = "密钥必须由4个16进制数字组成!";
+            return;
+        } else {
+            document.getElementById("key-decrypt-error").innerText = "";
+        }
+
+        let response = await fetch('/decrypt_binary', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `ciphertext_bin=${ciphertext.join(",")}&key=${key.join(",")}`
+        });
+
+        let data = await response.json();
+        if (data.error) {
+            alert(data.error);
+        } else {
+            document.getElementById("decryptionResult").innerText = "解密结果: " + data.plaintext_bin;
+        }
+    });
+
+    function isValidHex(hexValues) {
+        if (hexValues.length !== 4) {
+            return false;
+        }
+        for (let i = 0; i < hexValues.length; i++) {
+            if (!hexValues[i].match(/^[0-9A-Fa-f]{1}$/)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+</script>
+
+
+</body>
+</html>
