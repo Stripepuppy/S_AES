@@ -7,7 +7,7 @@ SimpleAES
 ## 第1关：基本测试
 
 根据S-AES算法编写和调试程序，提供GUI解密支持用户交互。输入可以是16bit的数据和16bit的密钥，输出是16bit的密文。
-![image](https://github.com/Stripepuppy/S_AES/assets/133982775/dab34ead-a4e4-4bc6-948d-d1803124cda7)
+![image](https://github.com/Stripepuppy/S_AES/assets/133982775/a8d715a0-8aaf-411e-8689-326982d3de98)
 
 
 ## 第2关：交叉测试
@@ -15,13 +15,14 @@ SimpleAES
 考虑到是"**算法标准"**，所有人在编写程序的时候需要使用相同算法流程和转换单元(替换盒、列混淆矩阵等)，以保证算法和程序在异构的系统或平台上都可以正常运行。
 
 设有A和B两组位同学(选择相同的密钥K)；则A、B组同学编写的程序对明文P进行加密得到相同的密文C；或者B组同学接收到A组程序加密的密文C，使用B组程序进行解密可得到与A相同的P。
-<img width="302" alt="image" src="https://github.com/Stripepuppy/S_AES/assets/133982775/913c2023-69ce-4245-bfc3-4deca5026c11">
+![image](https://github.com/Stripepuppy/S_AES/assets/133982775/ccb84de4-fd76-46d8-8325-e7a246e289d1)
+
 
 
 ## 第3关：扩展功能
 
 考虑到向实用性扩展，加密算法的数据输入可以是ASII编码字符串(分组为2 Bytes)，对应地输出也可以是ACII字符串(很可能是乱码)。
-![image](https://github.com/Stripepuppy/S_AES/assets/133982775/0e764659-2983-4a76-9751-2bf901c93877)
+![image](https://github.com/Stripepuppy/S_AES/assets/133982775/4dd89030-dae8-4c74-8294-aa1bd4beded4)
 
 
 ## 第4关：多重加密
@@ -39,7 +40,7 @@ SimpleAES
 将S-AES算法通过三重加密进行扩展，选择第一种模式完成：
 
 (1)按照32 bits密钥Key(K1+K2)的模式进行三重加密解密，由于可能密码过多，在此只展示前三个可能密钥，全部可能密钥存放在all_possible_keys.txt。
-![image](https://github.com/Stripepuppy/S_AES/assets/133982775/226c18b0-17ab-443a-858d-e4ac77c80a83)
+![image](https://github.com/Stripepuppy/S_AES/assets/133982775/f2c70f82-b497-4793-bd69-272510a75712)
 
 
 ## 第5关：工作模式
@@ -47,7 +48,7 @@ SimpleAES
 基于S-AES算法，使用**密码分组链(CBC)模式**对较长的明文消息进行加密。注意初始向量(16 bits) 的生成，并需要加解密双方共享。
 
 在CBC模式下进行加密，并尝试对密文分组进行替换或修改，然后进行解密，请对比篡改密文前后的解密结果。
-![image](https://github.com/Stripepuppy/S_AES/assets/133982775/a8fed43c-26f6-45dd-be8e-9b87e6317775)
+![image](https://github.com/Stripepuppy/S_AES/assets/133982775/465ff339-5746-4987-ad15-e7bf7e253d8d)
 
 
 # S-DES加解密工具开发手册
